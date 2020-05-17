@@ -1,0 +1,14 @@
+
+<div class="col mt-3">
+<h2 class="text-center">Enter your informations</h2>
+  <div class="container pt-5" id="ingredient-form">
+    <div class="row justify-content-center">
+      <div class="col-12 md-8">
+        <%= simple_form_for [@user, @library] do |f| %>
+          <%= f.input :name %>
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

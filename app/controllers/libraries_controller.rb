@@ -1,10 +1,10 @@
-class LibrarysController < ApplicationController
+class LibrariesController < ApplicationController
   def index
-    @librarys = Library.all
+    @libraries = Library.all
   end
 
   def new
-    @user = User.find((params[:user_id]))
+    @user = User.find(params[:user_id])
     @library = Library.new
   end
 
@@ -15,7 +15,7 @@ class LibrarysController < ApplicationController
   def create
   @library = Library.new(library_params)
   if @library.save
-    redirect_to library_path(@library)
+    redirect_to user_libraries_path(@user)
   else
     render :new
   end
@@ -24,7 +24,7 @@ class LibrarysController < ApplicationController
   def destroy
     @library = Library.find(params[:id])
     @library.destroy
-    redirect_to librarys_path
+    redirect_to libraryies_path
   end
 
   private

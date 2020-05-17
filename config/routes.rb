@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users do
-    resources :librarys
+    resources :libraries
   end
 
   resources :games
