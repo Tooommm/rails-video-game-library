@@ -1,26 +1,16 @@
-<div class="container">
-  <div class="text-center">
-    <h1>Welcome</h1>
-  </div>
-  <div class="row mb-5 mt-5">
-    <% @users.each do |user| %>
-    <% if cocktail.photo.attached? %>
-    <div class="col-xs-12 col-sm-4">
-      <%= link_to user_path(user), class: "card-link" do%>
-      <div class="card m-4"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
-        <div class="card-category p-5">
-          <h2> <%= user.name  %> </h2>
-        </div>
-      </div>
-    </div>
+<div class="card-product">
+  <% @users.each do |user| %>
+  <% if user.photo.attached? %>
+  <%= link_to user_path(user), class: "card-link" do%>
+    <%= cl_image_tag user.photo.key, height: 150, width: 150,  crop: :thumb, gravity: :face %>
+      <div class="card-product-infos">
+    <h2> <%= user.username  %> </h2>
+    <p>Access to your account and your Games Library</p>
       <% end %>
-    <% end %>
-    <% end %>
-  </div>
-  <div class="row">
-    <%= link_to "New User", new_user_path, class: "btn btn-primary btn-lg btn-block" %>
-  </div>
-
+      <% end %>
+      <% end %>
   </div>
 </div>
-
+<div class="row">
+  <%= link_to "New User", new_user_path, class: "btn btn-primary btn-lg btn-block" %>
+</div>
